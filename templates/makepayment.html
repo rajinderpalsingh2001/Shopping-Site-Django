@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {#        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">#}
+    {% include 'headerfiles.html' %}
+</head>
+<body>
+{% include 'publicheader.html' %}
+
+<div class="container">
+
+    <form action="ordersuccess" method="post">
+        {% csrf_token %}
+        <div class="form-control" readonly="true" name="textbox2">
+            <div class="form-group">
+                <label for="" class="text-capitalize"> Final Amount to be Paid</label>
+                <input type="text" value="{{ ar.total }}" readonly class="form-control">
+            </div>
+        </div>
+
+        <div class="form-control" readonly="true">
+            <div class="form-group">
+                <label for="" class="text-capitalize">order Number</label>
+                <input readonly class="form-control" type="text" value="{{ ar.ordernumber }}" name="textbox1">
+            </div>
+        </div>
+        <!-- Live_Key rzp_live_ILgsfZCZoFIKMb   -->
+        <!-- TEST_Key rzp_test_96HeaVmgRvbrfT -->
+        <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_96HeaVmgRvbrfT"
+                data-amount={{ ar.total }}00
+                data-buttontext="Pay with Razorpay"
+                data-name="VMM Education"
+                data-description="Thank You for purchaing Silver Package."
+                data-image="http://vmmeducation.com/images/newlogo.png" s
+                data-prefill.name="Amrinder Singh"
+                data-prefill.email="amrinder@vmmeducation.com"
+                data-theme.color="#2B3F54"
+        ></script>
+
+    </form>
+
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

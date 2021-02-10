@@ -1,0 +1,78 @@
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field:focus {
+    border: 2px solid dodgerblue;
+}
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+}
+
+.disabled {
+    color: lightgray;
+    cursor: not-allowed;
+}
+
+.required:after {
+    content: '*';
+    color: red;
+    font-size: 14px;
+    margin-left: 3px;
+    margin-top: 5px;
+}
+
+.form-control-1 {
+    position: relative;
+    /*border-color: #ced4da;*/
+    width: 89%;
+    line-height: 1.97;
+    border-bottom: 1px solid #ced4da;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid #ced4da;
+    border-top: 1px solid #ced4da;
+    border-right: 0 transparent;
+    margin-right: 0;
+    z-index: 10;
+    padding-top: 2.5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-control-1 {
+        width: 86.3%;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    .form-control-1 {
+        width: 75.3%;
+    }
+}
+
+.fa-style {
+    border-top: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    padding: 0.385rem 0.75rem;
+    margin-left: -4px !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: #fff;
+}

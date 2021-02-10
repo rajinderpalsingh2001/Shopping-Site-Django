@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'headerfiles.html' %}
+    {#    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">#}
+
+    <script>
+
+        function test() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("cart").innerHTML = this.responseText;
+                    test2();
+                }
+            };
+            xmlhttp.open("GET", "getcart", true);
+            xmlhttp.send();
+
+        }
+
+
+    </script>
+</head>
+<body onload="test()">
+{% include 'publicheader.html' %}
+<div class="container">
+
+    <div id="cart">
+
+    </div>
+    <div class="row justify-content-around">
+        <h2 class="text-info">Enter Shipping Details</h2>
+    </div>
+    <div id="shipping" class="card">
+        <div class="col-sm-7 offset-3">
+
+            <form action="makepayment" method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    Enter Name
+                    <input type="text" required name="fullname" class="form-control">
+                </div>
+                <div class="form-group">
+                    Enter Address
+                    <input type="text" required name="address" class="form-control">
+                </div>
+                <div class="form-group">
+                    Enter Mobile Number
+                    <input type="number" minlength="10" maxlength="10" required name="mobile" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    Enter Email Address
+                    <input type="email" required name="email" class="form-control">
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Proceed to Pay">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

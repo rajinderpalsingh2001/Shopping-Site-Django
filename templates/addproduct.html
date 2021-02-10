@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+    {% include 'headerfiles.html' %}
+    <script src="{% static "jquery-3.5.1.min.js" %}"></script>
+    <script src="{% static "dist/jquery.validate.js" %}"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#myform").validate();
+
+        });
+    </script>
+
+</head>
+<body>
+{% include "adminheader.html" %}
+
+<div class="container">
+    <div class="col-sm-8 offset-2">
+
+        <form id="myform" action="newproduct" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                Enter Product Name
+                <input type="text" data-rule-required name="pname" class="form-control">
+            </div>
+            <div class="form-group">
+                Enter Price
+                <input type="text" data-rule-required name="price" class="form-control">
+            </div>
+            <div class="form-group">
+                Enter Description
+                <input type="text" name="description" data-rule-required class="form-control">
+            </div>
+            <div class="form-group">
+                Enter Category Name
+                <select name="catname" class="form-control">
+                    {% for p in ar %}
+                        <option>{{ p.catname }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <div class="form-group">
+                Select Photo
+                <input type="file" name="photo" class="form-control" data-rule-required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

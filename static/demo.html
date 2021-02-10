@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>validation</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="dist/jquery.validate.js"></script>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+    <script>
+        function check(){
+            if($('#myform').valid()){
+                alert('all valid');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form id="myform">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" Data-rule-required="true" name="name" class="form-control" placeholder="Name" />
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="number" minlength="10" maxlength="10" id="mobile" Data-rule-required="true" Data-msg-required="Enter Mobile Number" name="mobile" class="form-control" placeholder="mobile" />
+            </div>
+            <div class="form-group">
+                <label for="class">Class</label>
+                <select name="class" id="class" class="form-control" Data-rule-required="true" Data-msg-required="Select your Course">
+                    <option value=""><--Select option--></option>
+                    <option value="One">one</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                </select>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" onclick="check()" class="w-50 btn btn-outline-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

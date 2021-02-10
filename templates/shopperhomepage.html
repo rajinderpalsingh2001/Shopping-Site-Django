@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {#    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">#}
+    {% load static %}
+    {% include 'headerfiles.html' %}
+    <script>
+
+
+        function test() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("bsitems").innerHTML = this.responseText;
+                    test2();
+                }
+            };
+            xmlhttp.open("GET", "selectcategory?q=Best Selling", true);
+            xmlhttp.send();
+
+        }
+
+        function test2() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ritems").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "selectcategory?q=Recommended Items", true);
+            xmlhttp.send();
+        }
+
+    </script>
+
+
+</head>
+<body onload="test()">
+{% include 'publicheader.html' %}
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!-- Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item item1 active">
+            <div class="container">
+                <div class="w3l-space-banner">
+                    <div class="carousel-caption p-lg-5 p-sm-4 p-3">
+                        <p>Get flat
+                            <span>10%</span> Cashback</p>
+                        <h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">The
+                            <span>Big</span>
+                            Sale
+                        </h3>
+                        <a class="button2" href="shopperhomepage">Shop Now </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item item2">
+            <div class="container">
+                <div class="w3l-space-banner">
+                    <div class="carousel-caption p-lg-5 p-sm-4 p-3">
+                        <p>advanced
+                        <h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Best
+                            <span>Offers</span>
+                        </h3>
+                        <a class="button2" href="shopperhomepage">Shop Now </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item item3">
+            <div class="container">
+                <div class="w3l-space-banner">
+                    <div class="carousel-caption p-lg-5 p-sm-4 p-3">
+                        <p>Get flat
+                            <span>10%</span> Cashback</p>
+                        <h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">New
+                            <span>Standard</span>
+                        </h3>
+                        <a class="button2" href="shopperhomepage">Shop Now </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item item4">
+            <div class="container">
+                <div class="w3l-space-banner">
+                    <div class="carousel-caption p-lg-5 p-sm-4 p-3">
+                        <p>Get Now
+                            <span>40%</span> Discount</p>
+                        <h3 class="font-weight-bold pt-2 pb-lg-5 pb-4">Today
+                            <span>Discount</span>
+                        </h3>
+                        <a class="button2" href="shopperhomepage">Shop Now </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container">
+    {##}
+    {#    <div>#}
+    {#        {% for element in ar %}#}
+    {#            <a href="categorypage?q={{ element.catname }}">{{ element.catname }}</a>#}
+    {#        {% endfor %}#}
+    {#    </div>#}
+    <div class="ads-grid py-sm-9 py-4">
+        <div class="container py-xl-4 py-lg-2">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+                <span>O</span>ur
+                <span>N</span>ew
+                <span>P</span>roducts</h3>
+            <!-- //tittle heading -->
+            <div class="row">
+                <!-- product left -->
+                <div class="agileinfo-ads-display col-lg-12">
+                    <div class="wrapper">
+                        <!-- first section -->
+                        <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
+                            <h3 class="heading-tittle text-center font-italic">New Products</h3>
+                            <div class="row">
+                                <h4>Best Selling</h4>
+                            </div>
+                            <div id="bsitems"></div>
+                            <hr>
+                            <div class="row">
+                                <h4>Recommended For You</h4>
+                            </div>
+                            <div id="ritems"></div>
+                        </div>
+                        <!-- //first section -->
+                    </div>
+                </div>
+                <!-- //product left -->
+            </div>
+        </div>
+    </div>
+    <!-- //top products -->
+
+    <!-- middle section -->
+    <!-- middle section -->
+</div>
+<div class="join-w3l1 py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2"></div>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

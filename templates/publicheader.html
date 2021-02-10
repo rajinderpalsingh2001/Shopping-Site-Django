@@ -1,0 +1,179 @@
+<!-- top-header -->
+<div class="agile-main-top">
+    <div class="container-fluid">
+        <div class="row main-top-w3l py-2">
+            <div class="col-lg-4 header-most-top">
+                <p class="text-white text-lg-left text-center">
+                    <a class="text-white" href="about.html">About us</a>
+                </p>
+            </div>
+            <div class="col-lg-8 header-right mt-lg-0 mt-2">
+                <!-- header lists -->
+                <ul>
+                    <li class="text-center border-right text-white">
+                        <i class="fas fa-phone mr-2"></i> 0000000000
+                    </li>
+                    <li class="text-center border-right text-white">
+                        <a href="login" class="text-white">
+                            <i class="fas fa-sign-in-alt mr-2"></i> Log In </a>
+                    </li>
+                    <li class="text-center text-white">
+                        <a href="#" data-toggle="modal" data-target="#signup" class="text-white">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Register </a>
+                    </li>
+                </ul>
+                <!-- //header lists -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modals -->
+<!-- log in -->
+<!-- register -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="insertuser.php" method="post" id="form1">
+                    <div class="form-group">
+                        <label class="col-form-label required">Your Name</label>
+                        <input type="text" class="form-control" placeholder=" " name="fullname" id="fullname"
+                               data-rule-required="true" data-msg-required="All Fields are mandatory">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label required">Email</label>
+                        <input type="email" class="form-control" placeholder=" " name="email" data-rule-required="true"
+                               data-msg-required="All Fields are mandatory">
+                    </div>
+                    <div class="form-group input-group-append">
+                        <label class="col-form-label required">Password</label>
+                        <input type="password" class="form-control" placeholder=" " name="password" id="password"
+                               data-rule-required="true" data-msg-required="All Fields are mandatory">
+                        <span class="input-group-append"><i class="fa fa-eye-slash" id="eyeslash"
+                                                            onclick="showpassword()"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label required">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder=" " data-rule-equalto="#password"
+                               data-msg-equalto="Password and confirm password must be same" name="conpassword"
+                               id="conpassword" data-rule-required="true" data-msg-required="All Fields are mandatory">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label required">Mobile</label>
+                        <input type="number" maxlength="10" minlength="10" class="form-control" placeholder=" "
+                               name="mobile" id="mobile" data-rule-required="true"
+                               data-msg-required="All Fields are mandatory">
+                    </div>
+                    <div class="right-w3l text-center">
+                        <button type="submit" class="btn btn-success" value="Register">Register</button>
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+                            <label class="custom-control-label" for="customControlAutosizing2">I Accept to the Terms &
+                                Conditions</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //modal -->
+<!-- //top-header -->
+
+<!-- header-bottom-->
+<div class="header-bot">
+    <div class="container">
+        <div class="row header-bot_inner_wthreeinfo_header_mid">
+            <!-- logo -->
+            <div class="col-md-3 logo_agile">
+                <h1 class="text-center">
+                    <a href="shopperhomepage" class="font-weight-bold font-italic">
+                        <i class="fa fa-shopping-cart"></i>Flipcart
+                    </a>
+                </h1>
+            </div>
+            <!-- //logo -->
+            <!-- header-bot -->
+            <div class="col-md-9 header mt-4 mb-md-0 mb-4">
+                <div class="row">
+                    <!-- search -->
+                    <div class="col-10 agileits_search">
+                        <form class="form-inline" action="searchaction.php" method="post">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search"
+                                   id="search" aria-label="Search"
+                                   required>
+                            <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <!-- //search -->
+                    <!-- cart details -->
+                    <div class="col-2 top_nav_right text-center mt-sm-0 mt-2">
+                        <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                            <!--                            <form action="#" method="post" class="last">-->
+                            <!--                                <input type="hidden" name="cmd" value="_cart">-->
+                            <!--                                <input type="hidden" name="display" value="1">-->
+                            <!--                                <button class="btn w3view-cart" type="submit" name="submit" value="">-->
+                            <!--                                    <i class="fas fa-cart-arrow-down"></i>-->
+                            <!--                                </button>-->
+                            <!--                            </form>-->
+                            <a href="checkout.php" class="btn w3view-cart"><i class="fas fa-2x fa-cart-arrow-down"
+                                                                              style="color: #112a86"></i></a>
+
+                        </div>
+                    </div>
+                    <!-- //cart details -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- shop locator (popup) -->
+<!-- //header-bottom -->
+<!-- navigation -->
+<div class="navbar-inner">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav" id="category1">
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- //navigation -->
+<!-- banner -->
+<!-- //banner -->
+<script>
+    function showcategory() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("category1").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "showcategory", true);
+        xmlhttp.send();
+
+    }
+
+
+    showcategory();
+</script>

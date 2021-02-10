@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    {% load static %}
+
+    <script src="{% static "jquery-3.5.1.min.js" %}"></script>
+    <script src="{% static "dist/jquery.validate.js" %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myform").validate();
+        })
+    </script>
+    {% include "headerfiles.html" %}
+
+</head>
+<body>
+{% include "adminheader.html" %}
+
+<div class="container">
+    <div class="col-sm-8 offset-2">
+        {% csrf_token %}
+        <form action="newcategory" method="post" id="myform">
+            <div class="form-group">
+                Enter Category Name
+                <input type="text" data-rule-required="true" data-msg-required="Pls Fill Category Name" name="textbox1"
+                       class="form-control">
+            </div>
+            <div class="form-group">
+                Enter Description
+                <input type="text" data-rule-required="true" data-msg-required="Pls Fill Description" name="textbox2"
+                       class="form-control">
+            </div>
+            <input type="submit" value="submit" class="btn btn-success">
+        </form>
+    </div>
+</div>
+{% include "footer.html" %}
+
+</body>
+</html>

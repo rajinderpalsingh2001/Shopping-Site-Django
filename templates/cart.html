@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'headerfiles.html' %}
+    {#        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">#}
+
+    <script>
+        function test() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ans").innerHTML = "Total Price is " + this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "cart_total", true);
+            xmlhttp.send();
+        }
+
+
+    </script>
+
+    {% load static %}
+</head>
+<body onload="test()">
+{% include 'publicheader.html' %}
+<div class="container">
+
+    <table class="table table-bordered table-sm table-striped">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Product Picture</th>
+            <th>Qty</th>
+            <th>Sub Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in ar %}
+            <tr>
+                <td>{{ row.pname }}</td>
+                <td>{{ row.price }}</td>
+                <td><img src='{% static row.photo %}' style="width: 150px;height: 150px"></td>
+                <td>{{ row.qty }}</td>
+                <td>{{ row.subtotal }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div id="ans">
+
+    </div>
+    <a href="checkout"> <img src="/static/checkout.jpg" style="width: 250px;height: 125px"></a>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

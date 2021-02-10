@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function test()
+        {
+            var s=document.getElementById("sel1").value;
+            alert(s);
+                var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("ans").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "getorders?q="+s , true);
+    xmlhttp.send();
+
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4">
+            Select Order Status
+        </div>
+        <div class="col-sm-4">
+            <select id="sel1">
+                <option>Payment Pending</option>
+                <option>Payment Recieved</option>
+                <option>Shipped</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <input type="button" class="btn btn-success" value="Search" onclick="test()">
+        </div>
+    </div>
+
+    <div id="ans">
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

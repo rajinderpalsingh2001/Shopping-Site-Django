@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+    {% include 'headerfiles.html' %}
+</head>
+<body>
+{% include "adminheader.html" %}
+
+<div class="container">
+    <table class="table table-bordered table-sm table-striped">
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th colspan="2">Controls</th>
+        </tr>
+        {% for row in ar %}
+            <tr>
+                <td>{{ row.catname }}</td>
+                <td>{{ row.description }}</td>
+                <td><a href="deletecat?q=" {{ row.catname }}><img src={% static "delete-24.jpg" %}></a></td>
+                <td><a href="update?q=" {{ row.catname }}><img style="width: 24px;height: 24px"
+                                                                   src="{% static "icons8-edit-64.png" %}"></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

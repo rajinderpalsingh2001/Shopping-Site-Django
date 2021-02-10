@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        function test() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("showheader").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "getcategory", true);
+            xmlhttp.send();
+        }
+
+
+    </script>
+
+    {% load static %}
+
+</head>
+<body onload="test()">
+
+<div class="container">
+
+    <div id="showheader">
+
+    </div>
+
+    <div class="row">
+        {% for element in ar %}
+            <div class="col-sm-4">
+                <img src="{% static element.photo %}" style="width: 250px;height: 250px"><br>
+                {{ element.pname }}<br>
+                {{ element.price }}
+                "<img src='{% static "add.jpg" %}' style='width:300px;height:200px'/>"
+            </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+{% include 'footer.html' %}
+</body>
+</html>
